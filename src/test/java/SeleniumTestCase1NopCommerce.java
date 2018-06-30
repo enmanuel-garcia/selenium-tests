@@ -20,20 +20,8 @@ public class SeleniumTestCase1NopCommerce extends SeleniumTestCaseBase {
 
     @Test
     public void TestCase() {
-        driver.get(NOP_COMMERCE_URL);
-
-        wait(LOAD_PAGE_WAIT_TIME);
-        
-        
+        getDriver().get(NOP_COMMERCE_URL);
+        waitExact(LOAD_PAGE_WAIT_TIME);
         LOG.info("Test case 1 completed successfully");
-    }
-
-    private void wait(final int milliseconds) {
-       try {
-    	   Thread.sleep(milliseconds);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
     }
 }

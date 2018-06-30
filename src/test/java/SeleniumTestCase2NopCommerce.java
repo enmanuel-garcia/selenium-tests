@@ -31,7 +31,7 @@ public class SeleniumTestCase2NopCommerce extends SeleniumTestCaseBase {
 
     @Test
     public void TestCase() {
-        driver.get(NOP_COMMERCE_URL);
+        getDriver().get(NOP_COMMERCE_URL);
         Arrays.stream(CATEGORIES_LINK_TEXT)
                 .forEach(this::navegateToCategory);
 
@@ -57,9 +57,5 @@ public class SeleniumTestCase2NopCommerce extends SeleniumTestCaseBase {
                 .until(ExpectedConditions
                         .elementToBeClickable(By.linkText(category)));
         link.click();
-    }
-
-    private WebDriverWait wait(final int seconds) {
-       return new WebDriverWait(driver, seconds);
     }
 }
