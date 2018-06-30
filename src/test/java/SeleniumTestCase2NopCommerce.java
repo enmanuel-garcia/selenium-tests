@@ -12,12 +12,11 @@ import java.util.Arrays;
 import java.util.logging.Logger;
 
 
-public class SeleniumTestCase2NopCommerce {
+public class SeleniumTestCase2NopCommerce extends SeleniumTestCaseBase {
 
     private static final Logger LOG = Logger.getLogger(SeleniumTestCase2NopCommerce.class.getName());
 
     private final static int CATEGORY_NAV_WAIT_TIME    = 3;
-    private final static String NOP_COMMERCE_URL       = "http://demo.nopcommerce.com/";
     private final static String TOGGLE_BUTTON_CLASS    = "menu-toggle";
     private final static String LOGO_SELECTOR          = ".header-logo a";
     private final static String[] CATEGORIES_LINK_TEXT = {
@@ -29,13 +28,6 @@ public class SeleniumTestCase2NopCommerce {
             "Jewelry",
             "Gift Cards"
     };
-
-    private WebDriver driver;
-
-    @BeforeEach
-    public void startBrowser() {
-        this.driver = new ChromeDriver();
-    }
 
     @Test
     public void TestCase() {
@@ -70,10 +62,4 @@ public class SeleniumTestCase2NopCommerce {
     private WebDriverWait wait(final int seconds) {
        return new WebDriverWait(driver, seconds);
     }
-
-    @AfterEach
-    public void shutDownDriver() {
-        this.driver.quit();
-    }
-
 }
