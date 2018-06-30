@@ -16,7 +16,7 @@ public class SeleniumTestCase2NopCommerce extends SeleniumTestCaseBase {
 
     private static final Logger LOG = Logger.getLogger(SeleniumTestCase2NopCommerce.class.getName());
 
-    private final static int CATEGORY_NAV_WAIT_TIME    = 3;
+    private final static int CATEGORY_NAV_WAIT_TIME    = 3000;
     private final static String TOGGLE_BUTTON_CLASS    = "menu-toggle";
     private final static String LOGO_SELECTOR          = ".header-logo a";
     private final static String[] CATEGORIES_LINK_TEXT = {
@@ -36,10 +36,9 @@ public class SeleniumTestCase2NopCommerce extends SeleniumTestCaseBase {
         Arrays.stream(CATEGORIES_LINK_TEXT)
                 .forEach(this::navegateToCategory);
 
-
-        WebElement logo = wait(CATEGORY_NAV_WAIT_TIME)
-                .until(ExpectedConditions
-                        .elementToBeClickable(By.cssSelector(LOGO_SELECTOR)));
+        waitExact(CATEGORY_NAV_WAIT_TIME);
+        WebElement logo = getDriver()
+                .findElement(By.cssSelector(LOGO_SELECTOR));
         logo.click();
 
         LOG.info("Test case 2 completed successfully");
@@ -47,9 +46,10 @@ public class SeleniumTestCase2NopCommerce extends SeleniumTestCaseBase {
 
     private void navegateToCategory(final String category) {
 
-        WebElement toggle = wait(CATEGORY_NAV_WAIT_TIME)
-                .until(ExpectedConditions
-                        .presenceOfElementLocated(By.className(TOGGLE_BUTTON_CLASS)));
+        waitExact(CATEGORY_NAV_WAIT_TIME);
+        WebElement toggle = getDriver()
+                .findElement(By.className(TOGGLE_BUTTON_CLASS));
+
         boolean isMovile = toggle.isDisplayed();
         if(isMovile) {
             toggle.click();

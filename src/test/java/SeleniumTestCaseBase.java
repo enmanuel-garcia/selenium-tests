@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public abstract class SeleniumTestCaseBase {
     private final static String NAME_SYSTEM_PROPERTY	= "webdriver.chrome.driver";
     private final static String VALUE_SYSTEM_PROPERTY	= "../selenium-tests/src/test/java/chromedriver.exe";
-    private final static int MAX_WAITING_TIME           =  20;
+    private final static int MAX_WAITING_TIME           =  50;
     protected final static String NOP_COMMERCE_URL      = "http://demo.nopcommerce.com/";
 
     
