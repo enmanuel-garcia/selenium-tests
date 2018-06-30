@@ -20,12 +20,24 @@ public class SeleniumTestCase3NopCommerce extends SeleniumTestCaseBase {
                     "/descendant::input[contains(@title, 'wishlist')]",
             BOOK_SEARCH);
 
+
     private static final String WISH_LIST_BOOK_NAME = String.format(
                     "//td" +
                     "/a[contains(text(), '%s')]",
-                    BOOK_SEARCH);
+            BOOK_SEARCH);
 
 
+    /**
+     *
+     * Vaya la página Wishlist
+     *
+     * Verifique que se despliega el mensaje “The wishlist is empty!”
+     * Vaya al campo de búsqueda de artículos utilizando el id= small-searchterms.
+     * Busque el libro Fahrenheit 451.
+     * Agregue el libro al Wishlist.
+     * Vaya nuevamente al Wishlist y verifique que el libro ha sido incluido
+     * Despliegue un mensaje indicando si el caso se ejecutó correctamente.
+     */
     @Override
     @Test
     public void TestCase() {

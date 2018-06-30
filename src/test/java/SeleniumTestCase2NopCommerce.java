@@ -29,6 +29,17 @@ public class SeleniumTestCase2NopCommerce extends SeleniumTestCaseBase {
             "Gift Cards"
     };
 
+    /**
+     * Abra el navegador (Chrome)
+     *
+     * Conéctese al sitio web http://demo.nopcommerce.com
+     * Ingrese a las categorías Computers, Electronics, Apparel, Digital downloads, books,
+     * Jewelry and Gift Cards.
+     * En cada caso, espere 3 segundos antes de ir a la siguiente categoría.
+     * Vuelva a la página principal haciendo click en la imagen de la esquina superior izquierda
+     * (nopCommerce).
+     * Despliegue un mensaje indicando si el caso se ejecutó correctamente.
+     */
     @Override
     @Test
     public void TestCase() {

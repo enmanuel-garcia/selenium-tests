@@ -20,6 +20,16 @@ public class SeleniumTestCase1NopCommerce extends SeleniumTestCaseBase {
     private final static int CLOSE_PAGE_WAIT_TIME	= 5000;
     private final static String PAGE_TITLE 		 	= "nopCommerce demo store";
 
+
+    /**
+     * Abra el navegador (Chrome o Firefox)
+     *
+     * Conéctese al sitio web http://demo.nopcommerce.com
+     * Verifique que el title sea “nopCommerce demo store”
+     * Despliegue un mensaje indicando si el title es correcto.
+     * Espere 5 segundos
+     * Cierre el browser
+     */
     @Override
     @Test
     public void TestCase() {
