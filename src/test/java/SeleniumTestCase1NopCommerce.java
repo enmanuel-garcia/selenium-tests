@@ -20,29 +20,24 @@ public class SeleniumTestCase1NopCommerce extends SeleniumTestCaseBase {
     private final static int CLOSE_PAGE_WAIT_TIME	= 5000;
     private final static String PAGE_TITLE 		 	= "nopCommerce demo store";
 
+    @Override
     @Test
     public void TestCase() {
-        driver.get(NOP_COMMERCE_URL);
+        getDriver().get(NOP_COMMERCE_URL);
 
-        wait(LOAD_PAGE_WAIT_TIME);     
+        waitExact(LOAD_PAGE_WAIT_TIME);
         checkTitle();
-        wait(CLOSE_PAGE_WAIT_TIME);
+        waitExact(CLOSE_PAGE_WAIT_TIME);
         
         LOG.info("Test case 1 completed successfully");
     }
 
-    private void wait(final int milliseconds) {
-       try {
-    	   Thread.sleep(milliseconds);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-    }
+
     
     private void checkTitle() {    	
-    	if (driver.getTitle().equals(PAGE_TITLE))
-    		LOG.info("El título si es '" + PAGE_TITLE + "'");
+    	if (getDriver().getTitle().equals(PAGE_TITLE))
+    		LOG.info("El tï¿½tulo si es '" + PAGE_TITLE + "'");
     	else
-    		LOG.warning("El título no es '" + PAGE_TITLE + "'");
+    		LOG.warning("El tï¿½tulo no es '" + PAGE_TITLE + "'");
     }
 }

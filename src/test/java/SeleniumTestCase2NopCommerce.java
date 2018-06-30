@@ -29,6 +29,7 @@ public class SeleniumTestCase2NopCommerce extends SeleniumTestCaseBase {
             "Gift Cards"
     };
 
+    @Override
     @Test
     public void TestCase() {
         getDriver().get(NOP_COMMERCE_URL);
