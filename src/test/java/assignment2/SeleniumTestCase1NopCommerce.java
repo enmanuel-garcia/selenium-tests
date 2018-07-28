@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 public class SeleniumTestCase1NopCommerce extends SeleniumTestCaseBase {
 
-    private static final Logger LOG = Logger.getLogger(SeleniumTestCase2NopCommerce.class.getName());
+    private static final Logger LOG = Logger.getLogger(SeleniumTestCase1NopCommerce.class.getName());
 
     private final static int CATEGORY_NAV_WAIT_TIME    = 3;
     private final static String TOGGLE_BUTTON_CLASS    = "menu-toggle";
@@ -39,7 +39,7 @@ public class SeleniumTestCase1NopCommerce extends SeleniumTestCaseBase {
                         .elementToBeClickable(By.cssSelector(LOGO_SELECTOR)));
         logo.click();
 
-        LOG.info("Test case 2 completed successfully");
+        LOG.info("Test case 1 completed successfully");
     }
 
     private void navegateToCategory(final String category) {
