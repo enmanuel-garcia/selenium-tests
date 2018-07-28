@@ -1,11 +1,9 @@
 package assignment2;
 
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.SearchContext;
-import org.openqa.selenium.WebElement;
-
 import base.SeleniumTestCaseBase;
 
 public class SeleniumTestCase2NopCommerce extends SeleniumTestCaseBase  {
@@ -16,34 +14,55 @@ public class SeleniumTestCase2NopCommerce extends SeleniumTestCaseBase  {
 
     @Test
     public void TestCase() {
+    	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    	
     	//Check if wish list is empty
         driver.get(NOP_COMMERCE_URL + WISHLIST_URL);        
-    	if (driver.findElements( By.id("div.no-data") ).size() != 0)
+    	if (driver.findElements(By.className("no-data")).size() != 0)
         	LOG.info("Wish list is empty");
-        else 
+        else {
         	LOG.info("Wish list is not empty");	
+        	driver.quit();
+        }
         
         //Add item to wish list
         driver.findElement(By.id("small-searchterms")).sendKeys(ITEM_TO_WISHLIST);       
         driver.findElement(By.className("search-box-button")).click();
         driver.findElement(By.className("add-to-wishlist-button")).click();
              
-        //Check if item was added
-    	if (driver.findElements(By.className("product-name")).get(0).getText().contains(ITEM_TO_WISHLIST))
-    		LOG.info("Item was added successful");
-    	else
-    		LOG.info("Item was not added");
+        //Check if item was added to wish list
+        driver.get(NOP_COMMERCE_URL + WISHLIST_URL);  
+    	if (driver.findElements(By.xpath(".//a[@href='/fahrenheit-451-by-ray-bradbury']")).size() != 0)
+    		LOG.info("Item was added to wish list successful");
+        else {
+        	LOG.info("Item was not added to wish list");
+        	driver.quit();
+        }
     	
     	//Check if shopping cart is empty
     	driver.get(NOP_COMMERCE_URL + SHOPPING_CART_URL);
-    	if (driver.findElements( By.id("div.no-data") ).size() != 0)
-        	LOG.info("Wish list is empty");
-        else 
-        	LOG.info("Wish list is not empty");	
+    	if (driver.findElements( By.className("no-data")).size() != 0)
+        	LOG.info("Shopping cart is empty");
+        else {
+        	LOG.info("Shopping cart is not empty");	
+        	driver.quit();
+        }
     	
     	//Add item to shopping cart
     	driver.get(NOP_COMMERCE_URL + WISHLIST_URL);
     	driver.findElement(By.xpath(".//td[@class='add-to-cart']/input[@type='checkbox']")).click();
     	driver.findElement(By.className("wishlist-add-to-cart-button")).click();
+    	
+    	//Check if item was added to shopping cart
+    	driver.get(NOP_COMMERCE_URL + SHOPPING_CART_URL);
+    	if (driver.findElements(By.xpath(".//a[@href='/fahrenheit-451-by-ray-bradbury']")).size() != 0)
+        	LOG.info("Item was added to shopping cart successful");
+        else {
+        	LOG.info("Item was not added to shopping cart");	
+        	driver.quit();
+        }
+    	
+    	driver.findElement(By.className("continue-shopping-button")).click();
+    	LOG.info("Test case 2 completed successfully");
     }
 }
