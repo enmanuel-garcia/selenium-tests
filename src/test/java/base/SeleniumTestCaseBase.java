@@ -2,14 +2,12 @@ package base;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.util.regex.Pattern;
 
 public abstract class SeleniumTestCaseBase {
@@ -17,9 +15,7 @@ public abstract class SeleniumTestCaseBase {
     private final static String VALUE_SYSTEM_PROPERTY	= "./src/test/java/assets/chromedriver.exe";
     private final static int MAX_WAITING_TIME           =  5;
     protected final static String NOP_COMMERCE_URL      = "http://demo.nopcommerce.com/";
-    private final static String FIRST_ITEM_TITLE        = ".item-grid > .item-box:first-of-type .product-title a";
-    
-    private WebDriver driver;
+    protected WebDriver driver;
 
     @BeforeEach
     public void startBrowser() {
