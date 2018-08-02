@@ -1,4 +1,5 @@
 
+import base.SeleniumTestCaseBase;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -38,7 +39,6 @@ public class SeleniumTestCase3NopCommerce extends SeleniumTestCaseBase {
      * Vaya nuevamente al Wishlist y verifique que el libro ha sido incluido
      * Despliegue un mensaje indicando si el caso se ejecutó correctamente.
      */
-    @Override
     @Test
     public void TestCase() {
         getDriver().get(NOP_COMMERCE_URL);
